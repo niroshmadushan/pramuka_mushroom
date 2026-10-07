@@ -1007,12 +1007,17 @@ footer {
 }
 
 @media (max-width: 768px) {
-  /* Navbar */
-  .navbar { flex-direction: row; gap: 15px; padding: 15px 20px; border-radius: 20px; justify-content: space-between; }
-  .navbar.navbar-scrolled { padding: 10px 20px; top: 10px; }
+  /* Navbar Mobile */
+  .navbar { flex-direction: row; gap: 10px; padding: 12px 15px; border-radius: 20px; justify-content: space-between; left: 3%; width: 94%; right: 3%; }
+  .navbar.navbar-scrolled { padding: 10px 15px; top: 10px; }
   .nav-links.desktop-only, .btn-primary.desktop-only { display: none; }
-  .mobile-menu-btn { display: block; }
+  .mobile-menu-btn { display: block; flex-shrink: 0; }
   .mobile-order-btn { display: inline-flex; }
+  
+  /* Scale down Logo for mobile */
+  .logo-title { font-size: 1.25rem; }
+  .logo-icon { font-size: 1.6rem; }
+  .logo-subtitle { font-size: 0.55rem; letter-spacing: 1px; }
 
   /* Hero Section Premium Mobile */
   .hero-graphic { display: none !important; }
