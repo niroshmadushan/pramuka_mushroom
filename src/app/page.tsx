@@ -1,69 +1,339 @@
+"use client";
 import Image from "next/image";
+import { useEffect } from "react";
+import ContactForm from "./components/ContactForm";
 
 export default function Home() {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        } else {
+          entry.target.classList.remove("is-visible");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".fade-in-section").forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <header className="hero">
+        <div className="hero-content">
+          <h1>Farm-Fresh <i>Oyster Mushrooms</i>, Grown the Traditional Way</h1>
+          <p>
+            Hand-picked, chemical-free, and cultivated using sustainable local practices. Taste the authentic difference of our premium oyster mushrooms, delivered straight from farm to table.
           </p>
+          <div className="hero-buttons">
+            <a href="#order" className="btn-primary">Order fresh now</a>
+            <a href="#process" className="btn-outline">View Process</a>
+          </div>
+          <div className="hero-stats">
+            <div className="stat">
+              <strong>100%</strong>
+              <span>Organic</span>
+            </div>
+            <div className="stat">
+              <strong>5+</strong>
+              <span>Years Exp</span>
+            </div>
+            <div className="stat">
+              <strong>Farm</strong>
+              <span>To Table</span>
+            </div>
+            <div className="stat">
+              <strong>Daily</strong>
+              <span>Harvest</span>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="hero-graphic">
+          <div className="collage-container">
+            <div className="animated-star">✨</div>
+            <div className="animated-leaf">🍃</div>
+            
+            <div className="floating-text-bubble bubble-1">
+               <span style={{color: 'var(--primary-brown)'}}>100% Organic</span>
+            </div>
+            
+            <div className="floating-text-bubble bubble-2">
+               ✨ Premium Quality
+            </div>
+
+            <Image src="/traditional_hut.png" alt="Traditional Hut" width={280} height={400} className="collage-img img-1" />
+            <Image src="/hero_bg.png" alt="Oyster Mushrooms" width={280} height={320} className="collage-img img-3" />
+            <Image src="/mushroom_bags.png" alt="Premium Mushrooms" width={380} height={500} className="collage-img img-2" />
+            
+            <div className="floating-badge">
+              <span style={{color: '#F59E0B'}}>✨</span>
+              <span>Freshly Harvested</span>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </header>
+      <section id="story" className="section-story fade-in-section">
+        <div className="story-image">
+          <div className="story-leaf-1">🍃</div>
+          <div className="story-leaf-2">✨</div>
+          <Image src="/traditional_hut.png" alt="Traditional Hut" width={600} height={500} className="animated-story-img" />
+          <div className="floating-est-card">
+            <h4>Est.</h4>
+            <span>Family Grown</span>
+          </div>
+        </div>
+        <div className="story-content">
+          <div className="section-tag" style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+             <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div> OUR STORY
+          </div>
+          <h2>Rooted in Sri Lankan tradition</h2>
+          <p>
+            At Pramuka Mushroom, growing is a craft passed down with care. We prepare our substrate by hand and sterilise it over a wood-fired barrel — the same honest, traditional method Sri Lankan farmers have trusted for generations.
+          </p>
+          <p>
+            No shortcuts, no chemicals. Just clean water, natural materials, patience, and a deep respect for nature. Every mushroom that reaches your kitchen is nurtured from spawn to harvest right here on our farm.
+          </p>
+          
+          <div className="story-badges">
+            <div className="story-badge">🍃 100% Natural</div>
+            <div className="story-badge">🛡️ Chemical-Free</div>
+            <div className="story-badge">☀️ Fresh Daily</div>
+          </div>
+
+          <div className="features" style={{marginTop: '40px'}}>
+            <a href="/ourstory" className="btn-outline dark">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="values" className="section-values fade-in-section">
+        <div className="section-tag" style={{justifyContent: 'center', display: 'flex', alignItems: 'center', gap: '15px'}}>
+             <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div> WHY OYSTER MUSHROOMS <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div>
+        </div>
+        <h2>Goodness grown by nature</h2>
+        <p className="values-subtitle">Tender, versatile and genuinely good for you — here's why our oyster mushrooms earn a place on your plate.</p>
+        <div className="values-grid">
+          <div className="value-card fade-in-section">
+            <div className="value-icon">🤍</div>
+            <h3>Rich in Protein</h3>
+            <p>A wholesome, meat-free source of protein that keeps everyday meals nourishing and satisfying.</p>
+          </div>
+          <div className="value-card fade-in-section" style={{transitionDelay: '0.1s'}}>
+            <div className="value-icon">🌿</div>
+            <h3>Packed with Nutrients</h3>
+            <p>Naturally high in fibre, B-vitamins, antioxidants and essential minerals for a healthy body.</p>
+          </div>
+          <div className="value-card fade-in-section" style={{transitionDelay: '0.2s'}}>
+            <div className="value-icon">☀️</div>
+            <h3>Light & Low Calorie</h3>
+            <p>Deliciously filling yet low in calories and fat — a smart choice for mindful, balanced eating.</p>
+          </div>
+          <div className="value-card fade-in-section" style={{transitionDelay: '0.3s'}}>
+            <div className="value-icon">🍃</div>
+            <h3>Naturally Grown</h3>
+            <p>Cultivated on natural substrate using traditional methods, the way nature intended.</p>
+          </div>
+          <div className="value-card fade-in-section" style={{transitionDelay: '0.4s'}}>
+            <div className="value-icon">🛡️</div>
+            <h3>Chemical-Free</h3>
+            <p>Absolutely no pesticides or artificial additives — pure, clean and safe for your family.</p>
+          </div>
+          <div className="value-card fade-in-section" style={{transitionDelay: '0.5s'}}>
+            <div className="value-icon">🧺</div>
+            <h3>Freshly Harvested</h3>
+            <p>Picked at peak freshness and delivered quickly, so every bite tastes farm-fresh.</p>
+          </div>
+        </div>
+        
+        <div style={{marginTop: '50px'}}>
+          <a href="/benefits" className="btn-outline dark">Discover All Benefits</a>
+        </div>
+      </section>
+
+      <section id="process" className="section-process fade-in-section">
+        <div className="section-tag">
+          <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div> OUR PROCESS <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div>
+        </div>
+        <h2>From spawn to your kitchen</h2>
+        <p className="process-subtitle">Every step is done by hand with patience and care — a traditional journey that gives our mushrooms their pure, natural flavour.</p>
+        <div className="process-grid">
+          <div className="process-card fade-in-section">
+            <div className="process-img-wrapper">
+              <div className="process-badge">1</div>
+              <Image src="/hero_bg.png" alt="Spawn & Substrate" width={300} height={200} />
+            </div>
+            <div className="process-content">
+              <h3>Spawn & Substrate</h3>
+              <p>Clean natural substrate is packed into bags and inoculated with healthy mushroom spawn.</p>
+            </div>
+          </div>
+          <div className="process-card fade-in-section" style={{transitionDelay: '0.2s'}}>
+            <div className="process-img-wrapper">
+              <div className="process-badge">2</div>
+              <Image src="/traditional_hut.png" alt="Traditional Steaming" width={300} height={200} />
+            </div>
+            <div className="process-content">
+              <h3>Traditional Steaming</h3>
+              <p>Bags are sterilised over a wood-fired barrel — the time-honoured Sri Lankan way.</p>
+            </div>
+          </div>
+          <div className="process-card fade-in-section" style={{transitionDelay: '0.4s'}}>
+            <div className="process-img-wrapper">
+              <div className="process-badge">3</div>
+              <Image src="/mushroom_bags.png" alt="Growing Room" width={300} height={200} />
+            </div>
+            <div className="process-content">
+              <h3>Growing Room</h3>
+              <p>In cool, humid rooms the mycelium spreads and tender mushrooms begin to form.</p>
+            </div>
+          </div>
+          <div className="process-card fade-in-section" style={{transitionDelay: '0.6s'}}>
+            <div className="process-img-wrapper">
+              <div className="process-badge">4</div>
+              <Image src="/freshmushroom.jpg" alt="Fresh Harvest" width={300} height={200} />
+            </div>
+            <div className="process-content">
+              <h3>Fresh Harvest</h3>
+              <p>Mushrooms are hand-picked at their peak and prepared fresh for your table.</p>
+            </div>
+          </div>
+        </div>
+        <div style={{marginTop: '50px'}}>
+          <a href="/ourprocess" className="btn-outline">Learn More About Our Process</a>
+        </div>
+      </section>
+
+      <section className="section-gallery fade-in-section">
+        <div className="section-tag" style={{justifyContent: 'center', display: 'flex', alignItems: 'center', gap: '15px'}}>
+           <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div> GALLERY <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div>
+        </div>
+        <h2 style={{fontSize: '3.2rem', fontFamily: "'Playfair Display', serif", fontWeight: 400, margin: '20px 0 15px', color: 'var(--text-dark)'}}>Life on the farm</h2>
+        <p style={{fontSize: '1.1rem', color: '#666', maxWidth: '600px', margin: '0 auto 50px auto', lineHeight: 1.6}}>
+          A glimpse into our growing rooms, traditional methods and beautiful fresh harvests.
+        </p>
+        <div className="gallery-grid">
+          <div className="gallery-item item-tall fade-in-section">
+            <img src="/freshmushroom.jpg" alt="Fresh mushrooms" />
+          </div>
+          <div className="gallery-item fade-in-section" style={{transitionDelay: '0.1s'}}>
+            <img src="/mushroom_bags.png" alt="Mushroom bags" />
+          </div>
+          <div className="gallery-item fade-in-section" style={{transitionDelay: '0.2s'}}>
+            <img src="/hero_bg.png" alt="Oyster mushrooms" />
+          </div>
+          <div className="gallery-item fade-in-section" style={{transitionDelay: '0.3s'}}>
+            <img src="/traditional_hut.png" alt="Traditional hut" />
+          </div>
+          <div className="gallery-item item-tall fade-in-section" style={{transitionDelay: '0.4s'}}>
+            <img src="/freshmushroom.jpg" alt="Fresh harvest" />
+          </div>
+          <div className="gallery-item item-tall fade-in-section" style={{transitionDelay: '0.5s'}}>
+            <img src="/traditional_hut.png" alt="Traditional method" />
+          </div>
+          <div className="gallery-item fade-in-section" style={{transitionDelay: '0.6s'}}>
+            <img src="/mushroom_bags.png" alt="More mushroom bags" />
+          </div>
+        </div>
+        <div style={{marginTop: '50px', textAlign: 'center'}}>
+          <a href="/gallery" className="btn-outline dark">View Full Gallery</a>
+        </div>
+      </section>
+
+      <section className="section-produce fade-in-section" style={{padding: '100px 5%', display: 'flex', alignItems: 'center', gap: '50px', backgroundColor: 'var(--off-white)'}}>
+        <div style={{flex: 1, display: 'flex', gap: '20px', justifyContent: 'center'}}>
+          <Image src="/mushroom_bags.png" alt="Mushroom Bags" width={280} height={400} style={{borderRadius: '15px', objectFit: 'cover', marginTop: '40px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)'}} />
+          <Image src="/freshmushroom.jpg" alt="Fresh Mushroom" width={280} height={400} style={{borderRadius: '15px', objectFit: 'cover', boxShadow: '0 15px 30px rgba(0,0,0,0.1)'}} />
+        </div>
+        <div style={{flex: 1}}>
+          <div className="section-tag">
+            <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div> FRESH PRODUCE
+          </div>
+          <h2 style={{fontSize: '3rem', fontFamily: "'Playfair Display', serif", fontWeight: 400, color: 'var(--text-dark)', marginBottom: '20px'}}>
+            Farm-fresh oyster mushrooms
+          </h2>
+          <div style={{display: 'inline-block', backgroundColor: 'rgba(216, 159, 75, 0.2)', padding: '8px 20px', borderRadius: '30px', fontSize: '0.9rem', color: 'var(--dark-brown)', fontWeight: 600, marginBottom: '20px'}}>
+            Fresh stock available — message us for today's price
+          </div>
+          <p style={{color: '#666', fontSize: '1.1rem', marginBottom: '30px', lineHeight: 1.6}}>
+            Delicate, savoury and wonderfully versatile, our oyster mushrooms bring a taste of the farm straight to your kitchen.
+          </p>
+          <ul style={{listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '40px'}}>
+            <li style={{display: 'flex', gap: '10px', color: '#555'}}><span style={{color: 'var(--primary-brown)'}}>✓</span> Plump, tender oyster mushrooms picked at peak freshness</li>
+            <li style={{display: 'flex', gap: '10px', color: '#555'}}><span style={{color: 'var(--primary-brown)'}}>✓</span> Grown on natural substrate with zero chemicals</li>
+            <li style={{display: 'flex', gap: '10px', color: '#555'}}><span style={{color: 'var(--primary-brown)'}}>✓</span> Great for stir-fries, curries, soups and grills</li>
+            <li style={{display: 'flex', gap: '10px', color: '#555'}}><span style={{color: 'var(--primary-brown)'}}>✓</span> Available fresh — order what you need, when you need it</li>
+          </ul>
+          <div style={{display: 'flex', gap: '15px'}}>
+            <a href="#order" className="btn-primary" style={{display: 'inline-flex', alignItems: 'center', gap: '10px', fontSize: '1.1rem', padding: '15px 35px', borderRadius: '40px', backgroundColor: '#BE8C56', boxShadow: '0 10px 20px rgba(190, 140, 86, 0.3)'}}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              Request Order
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="order" className="section-contact fade-in-section" style={{padding: '100px 5%', backgroundColor: 'var(--light-cream)'}}>
+        <div className="section-tag" style={{justifyContent: 'center', display: 'flex', alignItems: 'center', gap: '15px'}}>
+           <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div> GET IN TOUCH <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div>
+        </div>
+        <h2 style={{fontSize: '3.2rem', fontFamily: "'Playfair Display', serif", fontWeight: 400, margin: '20px 0 15px', color: 'var(--text-dark)', textAlign: 'center'}}>
+          Order fresh, straight from the farm
+        </h2>
+        <p style={{fontSize: '1.1rem', color: '#666', maxWidth: '600px', margin: '0 auto 50px auto', lineHeight: 1.6, textAlign: 'center'}}>
+          Send us a message or drop an email — we'd love to bring farm-fresh mushrooms to your table.
+        </p>
+        
+        <div style={{display: 'flex', gap: '50px', maxWidth: '1200px', margin: '0 auto'}}>
+          <div style={{flex: 1, display: 'flex', flexDirection: 'column', gap: '20px'}}>
+            <div style={{display: 'flex', gap: '20px', padding: '25px', backgroundColor: 'var(--off-white)', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)'}}>
+              <div style={{width: '50px', height: '50px', backgroundColor: '#BE8C56', color: 'white', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 5px 15px rgba(190, 140, 86, 0.2)'}}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path></svg>
+              </div>
+              <div>
+                <h4 style={{margin: '0 0 5px', color: 'var(--text-dark)'}}>Phone</h4>
+                <p style={{margin: 0, color: '#666'}}>+94 77 123 4567</p>
+              </div>
+            </div>
+            <div style={{display: 'flex', gap: '20px', padding: '25px', backgroundColor: 'var(--off-white)', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)'}}>
+              <div style={{width: '50px', height: '50px', backgroundColor: '#BE8C56', color: 'white', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 5px 15px rgba(190, 140, 86, 0.2)'}}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+              </div>
+              <div>
+                <h4 style={{margin: '0 0 5px', color: 'var(--text-dark)'}}>Call Us</h4>
+                <p style={{margin: 0, color: '#666'}}>+94 77 123 4567</p>
+              </div>
+            </div>
+            <div style={{display: 'flex', gap: '20px', padding: '25px', backgroundColor: 'var(--off-white)', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)'}}>
+              <div style={{width: '50px', height: '50px', backgroundColor: '#BE8C56', color: 'white', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 5px 15px rgba(190, 140, 86, 0.2)'}}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div>
+                <h4 style={{margin: '0 0 5px', color: 'var(--text-dark)'}}>Email</h4>
+                <p style={{margin: 0, color: '#666'}}>hello@pramukamushroom.lk</p>
+              </div>
+            </div>
+            <div style={{display: 'flex', gap: '20px', padding: '25px', backgroundColor: 'var(--off-white)', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)'}}>
+              <div style={{width: '50px', height: '50px', backgroundColor: '#BE8C56', color: 'white', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 5px 15px rgba(190, 140, 86, 0.2)'}}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div>
+                <h4 style={{margin: '0 0 5px', color: 'var(--text-dark)'}}>Location</h4>
+                <p style={{margin: 0, color: '#666'}}>Sri Lanka</p>
+              </div>
+            </div>
+          </div>
+          <div style={{flex: 1.2}}>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+
+
+    </>
   );
 }
