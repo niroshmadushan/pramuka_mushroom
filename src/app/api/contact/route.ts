@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     // Email options
     const mailOptions = {
       from: 'niroshmax01@gmail.com',
-      to: 'nirosh@nxcodeworks.com',
+      to: 'pramukamushroom@gmail.com',
       subject: `New Request: ${subject} (from ${name})`,
       text: `
 You have received a new request from your website!

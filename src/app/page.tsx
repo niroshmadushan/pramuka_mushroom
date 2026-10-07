@@ -314,7 +314,7 @@ export default function Home() {
               </div>
               <div>
                 <h4 style={{margin: '0 0 5px', color: 'var(--text-dark)'}}>Email</h4>
-                <p style={{margin: 0, color: '#666'}}>hello@pramukamushroom.lk</p>
+                <p style={{margin: 0, color: '#666'}}>pramukamushroom@gmail.com</p>
               </div>
             </div>
             <div style={{display: 'flex', gap: '20px', padding: '25px', backgroundColor: 'var(--off-white)', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)'}}>

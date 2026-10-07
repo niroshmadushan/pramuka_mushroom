@@ -48,12 +48,10 @@ export default function Footer() {
           <h4 style={{fontSize: '0.9rem', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '25px', color: 'white'}}>Contact</h4>
           <ul style={{listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '15px'}}>
             <li style={{color: '#aaa'}}>+94 77 123 4567</li>
-            <li><a href="mailto:hello@pramukamushroom.lk" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s ease'}}>hello@pramukamushroom.lk</a></li>
+            <li><a href="mailto:pramukamushroom@gmail.com" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s ease'}}>pramukamushroom@gmail.com</a></li>
             <li style={{color: '#aaa'}}>Sri Lanka</li>
             <li style={{color: '#aaa', marginTop: '10px', fontSize: '0.95rem', lineHeight: 1.5}}>
-              123 Farm Road,<br/>
-              Mushroom Village,<br/>
-              Colombo 01000
+              Makulugawewa/dewahuwa
             </li>
           </ul>
         </div>
