@@ -20,9 +20,17 @@ body {
   width: 100%;
 }
 
-@media (min-width: 769px) {
+/* Only hide default cursor on devices with a real mouse/trackpad */
+@media (hover: hover) and (pointer: fine) {
   * {
     cursor: none !important;
+  }
+}
+
+/* Hide the custom cursor elements entirely on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor-dot, .custom-cursor-ring {
+    display: none !important;
   }
 }
 
@@ -1059,7 +1067,8 @@ footer {
   .gallery-item { min-height: 250px; }
 
   /* Layout Utilities */
-  .footer-content { flex-direction: column; gap: 40px; text-align: center; }
-  .footer-content .logo-container { justify-content: center; }
-  .footer-content ul { align-items: center; }
+  .footer-main > div:first-child { flex-direction: column !important; gap: 40px !important; text-align: center; }
+  .footer-main .logo-container { justify-content: center; }
+  .footer-main ul { align-items: center; }
+  .footer-main > div:last-child { flex-direction: column; text-align: center; gap: 15px; }
 }
