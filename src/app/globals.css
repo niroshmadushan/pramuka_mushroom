@@ -1044,8 +1044,9 @@ footer {
   
   /* Shared Sections Premium Mobile */
   .section-produce { flex-direction: column !important; gap: 40px !important; padding: 70px 5% !important; }
-  .section-produce > div { width: 100% !important; text-align: center; }
-  .section-produce > div > div { display: flex; justify-content: center; width: 100%; }
+  .section-produce > div:first-child { flex-direction: column; align-items: center; width: 100% !important; margin-bottom: 20px; }
+  .section-produce > div:first-child img:first-child { display: none !important; }
+  .section-produce img { width: 100% !important; max-width: 350px; height: auto !important; margin: 0 auto !important; }
   .section-produce ul li { text-align: left; padding: 15px; background: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); margin-bottom: 10px; }
   
   /* Contact Section Mobile */
