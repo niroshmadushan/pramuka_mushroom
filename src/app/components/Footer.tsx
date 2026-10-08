@@ -51,15 +51,28 @@ export default function Footer() {
             <li><a href="mailto:pramukamushroom@gmail.com" style={{color: '#aaa', textDecoration: 'none', transition: 'color 0.2s ease'}}>pramukamushroom@gmail.com</a></li>
             <li style={{color: '#aaa'}}>Sri Lanka</li>
             <li style={{color: '#aaa', marginTop: '10px', fontSize: '0.95rem', lineHeight: 1.5}}>
-              Makulugawewa/dewahuwa
+              Makulugawewa / Dewahuwa
             </li>
           </ul>
         </div>
 
       </div>
+
+      {/* Google Map Centered */}
+      <div style={{maxWidth: '1200px', margin: '50px auto 0', width: '100%', padding: '0 20px'}}>
+        <iframe 
+          src="https://maps.google.com/maps?q=Makulugawewa,%20Dewahuwa,%20Sri%20Lanka&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+          width="100%" 
+          height="250" 
+          style={{border: 0, borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.2)'}} 
+          allowFullScreen={true} 
+          loading="lazy" 
+          title="Pramuka Mushroom Location"
+        ></iframe>
+      </div>
       
       {/* Footer Bottom */}
-      <div style={{maxWidth: '1200px', margin: '60px auto 0', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '25px 0 0', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px', fontSize: '0.9rem', color: '#888'}}>
+      <div style={{maxWidth: '1200px', margin: '50px auto 0', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '25px 0 0', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px', fontSize: '0.9rem', color: '#888'}}>
         <div>
           &copy; {new Date().getFullYear()} Pramuka Mushroom. All rights reserved.
         </div>
