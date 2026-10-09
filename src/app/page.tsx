@@ -19,6 +19,36 @@ export default function Home() {
       observer.observe(el);
     });
 
+    const countElements = document.querySelectorAll('.stat strong');
+    countElements.forEach((el) => {
+      const targetText = (el as HTMLElement).innerText;
+      const target = parseInt(targetText.replace(/\D/g, ''));
+      if (isNaN(target)) return;
+      
+      const suffix = targetText.replace(/[0-9]/g, '');
+      let count = 0;
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      
+      const updateCount = () => {
+        count += increment;
+        if (count < target) {
+          (el as HTMLElement).innerText = Math.ceil(count) + suffix;
+          requestAnimationFrame(updateCount);
+        } else {
+          (el as HTMLElement).innerText = targetText;
+        }
+      };
+      
+      const statObserver = new IntersectionObserver((entries) => {
+        if(entries[0].isIntersecting) {
+          updateCount();
+          statObserver.disconnect();
+        }
+      });
+      statObserver.observe(el);
+    });
+
     return () => observer.disconnect();
   }, []);
 
@@ -50,6 +80,10 @@ export default function Home() {
             <div className="stat">
               <strong>Daily</strong>
               <span>Harvest</span>
+            </div>
+            <div className="stat">
+              <strong>150+</strong>
+              <span>Happy Customers</span>
             </div>
           </div>
         </div>
@@ -208,6 +242,134 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section-reviews fade-in-section" style={{padding: '100px 0', backgroundColor: 'white', textAlign: 'center'}}>
+        <div className="section-tag" style={{justifyContent: 'center', display: 'flex', alignItems: 'center', gap: '15px'}}>
+           <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div> TESTIMONIALS <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div>
+        </div>
+        <h2 style={{fontSize: '3.2rem', fontFamily: "'Playfair Display', serif", fontWeight: 400, margin: '20px 0 15px', color: 'var(--text-dark)'}}>What our customers say</h2>
+        <p style={{fontSize: '1.1rem', color: '#666', maxWidth: '600px', margin: '0 auto 50px auto', lineHeight: 1.6}}>
+          Hear from our happy customers across Sri Lanka who enjoy our fresh, organic oyster mushrooms.
+        </p>
+
+        <div className="reviews-carousel-wrapper">
+          <div className="reviews-carousel">
+            {/* Reviews Set 1 */}
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"Absolutely the freshest oyster mushrooms I have ever bought. They cook perfectly and the taste is incredibly natural. Highly recommend!"</p>
+              <div className="review-author">
+                <div className="review-avatar">NP</div>
+                <div className="review-author-info">
+                  <h4>Nuwan Perera</h4>
+                  <span>Colombo</span>
+                </div>
+              </div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"I've been buying from Pramuka Mushroom for months now. The quality is always top-notch and it's completely chemical-free. Great service!"</p>
+              <div className="review-author">
+                <div className="review-avatar">KJ</div>
+                <div className="review-author-info">
+                  <h4>Kasun Jayasinghe</h4>
+                  <span>Kandy</span>
+                </div>
+              </div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"You can really taste the difference. The traditional growing methods give these mushrooms a unique, authentic flavour. My family loves them."</p>
+              <div className="review-author">
+                <div className="review-avatar">AF</div>
+                <div className="review-author-info">
+                  <h4>Amila Fernando</h4>
+                  <span>Negombo</span>
+                </div>
+              </div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"Very tender and meaty texture. They are perfect for stir-fries and curries. Plus, knowing they are organic gives peace of mind."</p>
+              <div className="review-author">
+                <div className="review-avatar">TS</div>
+                <div className="review-author-info">
+                  <h4>Thilini Silva</h4>
+                  <span>Galle</span>
+                </div>
+              </div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"Fast delivery and the mushrooms arrive so fresh! The packaging is great, and the customer service is very friendly. Best farm in SL."</p>
+              <div className="review-author">
+                <div className="review-avatar">CR</div>
+                <div className="review-author-info">
+                  <h4>Chamara Rathnayake</h4>
+                  <span>Kurunegala</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Reviews Set 2 (for seamless loop) */}
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"Absolutely the freshest oyster mushrooms I have ever bought. They cook perfectly and the taste is incredibly natural. Highly recommend!"</p>
+              <div className="review-author">
+                <div className="review-avatar">NP</div>
+                <div className="review-author-info">
+                  <h4>Nuwan Perera</h4>
+                  <span>Colombo</span>
+                </div>
+              </div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"I've been buying from Pramuka Mushroom for months now. The quality is always top-notch and it's completely chemical-free. Great service!"</p>
+              <div className="review-author">
+                <div className="review-avatar">KJ</div>
+                <div className="review-author-info">
+                  <h4>Kasun Jayasinghe</h4>
+                  <span>Kandy</span>
+                </div>
+              </div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"You can really taste the difference. The traditional growing methods give these mushrooms a unique, authentic flavour. My family loves them."</p>
+              <div className="review-author">
+                <div className="review-avatar">AF</div>
+                <div className="review-author-info">
+                  <h4>Amila Fernando</h4>
+                  <span>Negombo</span>
+                </div>
+              </div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"Very tender and meaty texture. They are perfect for stir-fries and curries. Plus, knowing they are organic gives peace of mind."</p>
+              <div className="review-author">
+                <div className="review-avatar">TS</div>
+                <div className="review-author-info">
+                  <h4>Thilini Silva</h4>
+                  <span>Galle</span>
+                </div>
+              </div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"Fast delivery and the mushrooms arrive so fresh! The packaging is great, and the customer service is very friendly. Best farm in SL."</p>
+              <div className="review-author">
+                <div className="review-avatar">CR</div>
+                <div className="review-author-info">
+                  <h4>Chamara Rathnayake</h4>
+                  <span>Kurunegala</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section-gallery fade-in-section">
         <div className="section-tag" style={{justifyContent: 'center', display: 'flex', alignItems: 'center', gap: '15px'}}>
            <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div> GALLERY <div style={{width: '30px', height: '2px', backgroundColor: 'var(--primary-brown)'}}></div>
@@ -218,25 +380,25 @@ export default function Home() {
         </p>
         <div className="gallery-grid">
           <div className="gallery-item item-tall fade-in-section">
-            <img src="/freshmushroom.jpg" alt="Fresh mushrooms" />
+            <Image src="/freshmushroom.jpg" alt="Fresh mushrooms" fill style={{objectFit: 'cover'}} />
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.1s'}}>
-            <img src="/mushroom_bags.png" alt="Mushroom bags" />
+            <Image src="/mushroom_bags.png" alt="Mushroom bags" fill style={{objectFit: 'cover'}} />
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.2s'}}>
-            <img src="/hero_bg.png" alt="Oyster mushrooms" />
+            <Image src="/hero_bg.png" alt="Oyster mushrooms" fill style={{objectFit: 'cover'}} />
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.3s'}}>
-            <img src="/traditional_hut.png" alt="Traditional hut" />
+            <Image src="/traditional_hut.png" alt="Traditional hut" fill style={{objectFit: 'cover'}} />
           </div>
           <div className="gallery-item item-tall fade-in-section" style={{transitionDelay: '0.4s'}}>
-            <img src="/freshmushroom.jpg" alt="Fresh harvest" />
+            <Image src="/freshmushroom.jpg" alt="Fresh harvest" fill style={{objectFit: 'cover'}} />
           </div>
           <div className="gallery-item item-tall fade-in-section" style={{transitionDelay: '0.5s'}}>
-            <img src="/traditional_hut.png" alt="Traditional method" />
+            <Image src="/traditional_hut.png" alt="Traditional method" fill style={{objectFit: 'cover'}} />
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.6s'}}>
-            <img src="/mushroom_bags.png" alt="More mushroom bags" />
+            <Image src="/mushroom_bags.png" alt="More mushroom bags" fill style={{objectFit: 'cover'}} />
           </div>
         </div>
         <div style={{marginTop: '50px', textAlign: 'center'}}>
