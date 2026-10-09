@@ -34,31 +34,40 @@ export default function Gallery() {
 
         <div className="gallery-grid">
           <div className="gallery-item item-tall fade-in-section">
-            <img src="/freshmushroom.jpg" alt="Fresh mushrooms close-up" />
+            <Image src="/freshmushroom.jpg" alt="Fresh mushrooms close-up" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.1s'}}>
-            <img src="/mushroom_bags.png" alt="Mushroom bags" />
+            <Image src="/mushroom_bags.png" alt="Mushroom bags" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.2s'}}>
-            <img src="/hero_bg.png" alt="Oyster mushrooms" />
+            <Image src="/hero_bg.png" alt="Oyster mushrooms" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.3s'}}>
-            <img src="/traditional_hut.png" alt="Traditional hut" />
+            <Image src="/traditional_hut.png" alt="Traditional hut" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item item-tall fade-in-section" style={{transitionDelay: '0.4s'}}>
-            <img src="/freshmushroom.jpg" alt="Fresh harvest" />
+            <Image src="/freshmushroom.jpg" alt="Fresh harvest" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item item-tall fade-in-section" style={{transitionDelay: '0.5s'}}>
-            <img src="/traditional_hut.png" alt="Traditional method" />
+            <Image src="/traditional_hut.png" alt="Traditional method" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.1s'}}>
-            <img src="/hero_bg.png" alt="Mushroom harvest" />
+            <Image src="/hero_bg.png" alt="Mushroom harvest" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item item-tall fade-in-section" style={{transitionDelay: '0.2s'}}>
-            <img src="/mushroom_bags.png" alt="Cultivation bags" />
+            <Image src="/mushroom_bags.png" alt="Cultivation bags" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.3s'}}>
-            <img src="/traditional_hut.png" alt="Mushroom farm" />
+            <Image src="/traditional_hut.png" alt="Mushroom farm" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
         </div>
       </section>

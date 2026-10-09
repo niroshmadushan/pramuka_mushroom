@@ -381,24 +381,31 @@ export default function Home() {
         <div className="gallery-grid">
           <div className="gallery-item item-tall fade-in-section">
             <Image src="/freshmushroom.jpg" alt="Fresh mushrooms" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.1s'}}>
             <Image src="/mushroom_bags.png" alt="Mushroom bags" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.2s'}}>
             <Image src="/hero_bg.png" alt="Oyster mushrooms" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.3s'}}>
             <Image src="/traditional_hut.png" alt="Traditional hut" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item item-tall fade-in-section" style={{transitionDelay: '0.4s'}}>
             <Image src="/freshmushroom.jpg" alt="Fresh harvest" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item item-tall fade-in-section" style={{transitionDelay: '0.5s'}}>
             <Image src="/traditional_hut.png" alt="Traditional method" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
           <div className="gallery-item fade-in-section" style={{transitionDelay: '0.6s'}}>
             <Image src="/mushroom_bags.png" alt="More mushroom bags" fill style={{objectFit: 'cover'}} />
+            <div className="gallery-overlay"><span className="gallery-icon">🔍</span></div>
           </div>
         </div>
         <div style={{marginTop: '50px', textAlign: 'center'}}>
